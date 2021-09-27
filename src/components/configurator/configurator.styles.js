@@ -8,4 +8,6 @@ export const Container = styled.div`
   flex-direction: column;
 `;
 
-export const Message = styled.div``;
+export const Message = styled.div`
+  margin-bottom: 20px;
+`;
