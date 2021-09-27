@@ -9,6 +9,7 @@ const defaultStyle = (theme) => `
 
 const lg = (theme) => `
     padding: ${theme.spacing.padding.xl};
+    width: 80%;
 `;
 
 const sm = (theme) => `

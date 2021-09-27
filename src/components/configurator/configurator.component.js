@@ -11,7 +11,7 @@ const Configurator = () => {
     <>
       <Container>
         <Message>Pritisnite gumb niže kako biste pokrenuli</Message>
-        <Button onClick={() => setIsConfigurator(!isConfigurator)}>
+        <Button size="lg" onClick={() => setIsConfigurator(!isConfigurator)}>
           Pokreni konfigurator
         </Button>
       </Container>

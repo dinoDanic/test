@@ -4,23 +4,21 @@ import { Container, Label } from "./select-car.styles";
 
 import Radio from "../../../../../theme/ui-components/radio/radio.component";
 
-const SelectCar = ({ car }) => {
+const SelectCar = ({ car, setButtonValid }) => {
   const { carName } = car;
 
   const handleSelect = (e) => {
     const value = e.target.value;
-    console.log(value);
+    if (value) {
+      setButtonValid(true);
+    } else {
+      setButtonValid(false);
+    }
   };
 
   return (
     <Container>
-      <Radio
-        id={carName}
-        name="car"
-        value={carName}
-        onChange={(e) => handleSelect(e)}
-      />
-      <Label htmlFor={carName}>{carName}</Label>
+      <Radio name="car" value={carName} onChange={(e) => handleSelect(e)} />
     </Container>
   );
 };

@@ -1,8 +1,13 @@
 import React from "react";
 import { Btn } from "./button.styles";
 
-const Button = ({ children, ...otherProps }) => {
-  return <Btn {...otherProps}>{children}</Btn>;
+const Button = ({ size, children, valid, ...otherProps }) => {
+  console.log(valid);
+  return (
+    <Btn size={size} valid={valid} {...otherProps}>
+      {children}
+    </Btn>
+  );
 };
 
 export default Button;
