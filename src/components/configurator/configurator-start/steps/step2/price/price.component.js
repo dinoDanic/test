@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   Container,
   Coupon,
@@ -21,11 +22,14 @@ import { coupons } from "../../../../../../mock/coupons";
 
 import Input from "../../../../../../theme/ui-components/input/input.component";
 import Button from "../../../../../../theme/ui-components/button/button.component";
+import { setDiscount } from "../../../../../../redux/config/config.actions";
 
 const Price = ({ price }) => {
+  const discount = useSelector((state) => state.config.discount);
+  const dispatch = useDispatch();
   const [isCoupon, setIsCoupon] = useState(false);
   const [couponInput, setCouponInput] = useState("");
-  const [couponValue, setCouponValue] = useState(null);
+  const [couponValue, setCouponValue] = useState(discount);
   const [discountValue, setDiscountValue] = useState(null);
   const [priceWithDiscount, setPriceWithDiscount] = useState(null);
   const [couponSuccess, setCouponSuccess] = useState(false);
@@ -37,6 +41,7 @@ const Price = ({ price }) => {
       const newPrice = price - dv;
       setPriceWithDiscount(newPrice);
       setDiscountValue(dv);
+      setCouponSuccess(true);
     }
   }, [couponValue, price]);
 
@@ -46,6 +51,7 @@ const Price = ({ price }) => {
 
     if (theCoupon !== undefined) {
       setCouponValue(theCoupon.value);
+      dispatch(setDiscount(theCoupon.value));
       setCouponSuccess(true);
       setIsCoupon(false);
       setCouponFail(false);
@@ -55,6 +61,7 @@ const Price = ({ price }) => {
       setCouponSuccess(false);
       setIsCoupon(false);
       setCouponValue(null);
+      dispatch(setDiscount(null));
     }
   };
 

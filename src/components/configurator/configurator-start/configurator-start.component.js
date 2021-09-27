@@ -7,6 +7,7 @@ import Box from "../../../theme/ui-components/box/box.component";
 import Step from "./steps/step/step.component";
 import Step1 from "./steps/step1/step1.component";
 import Step2 from "./steps/step2/step2.component";
+import Step3 from "./steps/step3/step3.component";
 
 const ConfiguratorStart = () => {
   const activeStep = useSelector((state) => state.config.activeStep);
@@ -29,6 +30,11 @@ const ConfiguratorStart = () => {
             error={error}
           >
             <Step2 setError={setError} />
+          </Step>
+        )}
+        {activeStep === "step3" && (
+          <Step title="Korak 3. Vaši kontakt podaci" error={error}>
+            <Step3 setError={setError} />
           </Step>
         )}
       </Box>
