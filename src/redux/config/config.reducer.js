@@ -5,6 +5,7 @@ const INITIAL_STATE = {
   selectedServices: [],
   price: 0,
   discount: null,
+  activeStep: "step1",
 };
 
 const configReducer = (state = INITIAL_STATE, action) => {
@@ -31,6 +32,11 @@ const configReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         discount: action.payload,
+      };
+    case ConfigActionType.SET_STEP:
+      return {
+        ...state,
+        activeStep: action.payload,
       };
     default:
       return state;

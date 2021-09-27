@@ -1,5 +1,5 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import {
   addService,
@@ -9,8 +9,22 @@ import {
 import CheckBox from "../../../../../../theme/ui-components/check-box/check-box.component";
 
 const SelectService = ({ service }) => {
+  const config = useSelector((state) => state.config);
+  const [checked, setChecked] = useState(false);
   const { name, price } = service;
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const findCheck = config.selectedServices.filter(
+      (service) => service.name === name
+    );
+    const result = findCheck[0];
+    if (result) {
+      setChecked(true);
+    } else {
+      setChecked(false);
+    }
+  }, [config, name]);
 
   const handleChange = (e) => {
     const checked = e.target.checked;
@@ -21,7 +35,12 @@ const SelectService = ({ service }) => {
     }
   };
   return (
-    <CheckBox value={name} price={price} onChange={(e) => handleChange(e)} />
+    <CheckBox
+      value={name}
+      checked={checked}
+      price={price}
+      onChange={(e) => handleChange(e)}
+    />
   );
 };
 

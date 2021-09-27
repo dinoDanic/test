@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Container, CarHolder, CarItem, Buttons } from "./step1.styles";
+
+import { setSteps } from "../../../../../redux/config/config.actions";
 
 import SelectCar from "./select-car/select-car.component";
 import Button from "../../../../../theme/ui-components/button/button.component";
 
 import { carsData } from "../../../../../mock/cars.data";
 
-const Step1 = ({ setSteps, setError }) => {
+const Step1 = ({ setError }) => {
+  const dispatch = useDispatch();
   const [buttonValid, setButtonValid] = useState(false);
 
   const handleButton = () => {
@@ -14,10 +18,7 @@ const Step1 = ({ setSteps, setError }) => {
       setError("Odabir je obavezan");
     } else {
       setError("");
-      setSteps({
-        step1: false,
-        step2: true,
-      });
+      dispatch(setSteps("step2"));
     }
   };
 

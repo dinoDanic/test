@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { serviceData } from "../../../../../mock/service.data";
+
+import { setSteps } from "../../../../../redux/config/config.actions";
 
 import { Container, ServiceItem, Services, Buttons } from "./step2.styles";
 
@@ -9,6 +11,7 @@ import Price from "./price/price.component";
 import Button from "../../../../../theme/ui-components/button/button.component";
 
 const Step2 = ({ setError }) => {
+  const dispatch = useDispatch();
   const [price, setPrice] = useState(null);
   const [buttonValidation, setButtonValidation] = useState(false);
   const selectedServices = useSelector(
@@ -23,11 +26,24 @@ const Step2 = ({ setError }) => {
     setPrice(sum);
     if (selectedServices.length > 0) {
       setButtonValidation(true);
+      setError("");
     } else {
       setButtonValidation(false);
-      setError("Odaberite jednu ili više");
     }
   }, [selectedServices, setError]);
+
+  const handleNext = () => {
+    if (!buttonValidation) {
+      setError("Odaberite jednu ili više");
+    } else {
+      setError("");
+      dispatch(setSteps("step3"));
+    }
+  };
+
+  const handleBack = () => {
+    dispatch(setSteps("step1"));
+  };
 
   return (
     <Container>
@@ -40,8 +56,10 @@ const Step2 = ({ setError }) => {
       </Services>
       <Price price={price} />
       <Buttons>
-        <Button>Nazad</Button>
-        <Button valid={buttonValidation}>Dalje</Button>
+        <Button onClick={handleBack}>Nazad</Button>
+        <Button valid={buttonValidation} onClick={handleNext}>
+          Dalje
+        </Button>
       </Buttons>
     </Container>
   );

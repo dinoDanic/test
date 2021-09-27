@@ -19,3 +19,8 @@ export const setDiscount = (value) => ({
   type: ConfigActionType.SET_DISCOUNT,
   payload: value,
 });
+
+export const setSteps = (step) => ({
+  type: ConfigActionType.SET_STEP,
+  payload: step,
+});

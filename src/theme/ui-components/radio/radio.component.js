@@ -1,15 +1,16 @@
 import React from "react";
 import { RadioInput, Label } from "./radio.styles";
 
-const Radio = ({ name, value, ...otherProps }) => {
+const Radio = ({ checked, name, value, ...otherProps }) => {
   return (
     <>
       <RadioInput
+        {...otherProps}
         value={value}
         name={name}
         id={value}
+        checked={checked}
         type="radio"
-        {...otherProps}
       />
       <Label htmlFor={value}>{value}</Label>
     </>
