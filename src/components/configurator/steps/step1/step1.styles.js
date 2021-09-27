@@ -6,7 +6,6 @@ export const CarHolder = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  margin-top: 30px;
 `;
 
 export const CarItem = styled.div`

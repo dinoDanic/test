@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Container, CarHolder, CarItem, Buttons, Error } from "./step1.styles";
+import { Container, CarHolder, CarItem, Buttons } from "./step1.styles";
 
-import Title from "../../../../theme/ui-components/title/title.component";
 import SelectCar from "./select-car/select-car.component";
 import Button from "../../../../theme/ui-components/button/button.component";
 
-import { carsData } from "./cars.data";
+import { carsData } from "../../../../mock/cars.data";
 
-const Step1 = ({ setSteps }) => {
+const Step1 = ({ setSteps, setError }) => {
   const [buttonValid, setButtonValid] = useState(false);
-  const [error, setError] = useState("");
 
   const handleButton = () => {
     if (!buttonValid) {
@@ -18,7 +16,7 @@ const Step1 = ({ setSteps }) => {
       setError("");
       setSteps({
         step1: false,
-        setp2: true,
+        step2: true,
       });
     }
   };
@@ -27,12 +25,10 @@ const Step1 = ({ setSteps }) => {
     if (buttonValid) {
       setError("");
     }
-  }, [buttonValid]);
+  }, [buttonValid, setError]);
 
   return (
     <Container>
-      <Title>Korak 1. Odaberite proizvođača vašeg vozila</Title>
-      {error && <Error>{error}</Error>}
       <CarHolder>
         {carsData.map((car) => (
           <CarItem key={car.carName}>

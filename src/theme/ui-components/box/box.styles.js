@@ -10,6 +10,7 @@ const defaultStyle = (theme) => `
 const lg = (theme) => `
     padding: ${theme.spacing.padding.xl};
     width: 80%;
+    max-width: 1100px;
 `;
 
 const sm = (theme) => `
