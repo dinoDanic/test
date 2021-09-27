@@ -1,11 +1,10 @@
 import ConfigActionType from "./config.actionType";
-import { serviceData } from "../../mock/service.data";
 
 const INITIAL_STATE = {
   selectedCar: null,
-  serviceOptions: serviceData,
   selectedServices: [],
   price: 0,
+  discount: null,
 };
 
 const configReducer = (state = INITIAL_STATE, action) => {
@@ -27,6 +26,11 @@ const configReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         selectedServices: removedService,
+      };
+    case ConfigActionType.SET_DISCOUNT:
+      return {
+        ...state,
+        discount: action.payload,
       };
     default:
       return state;

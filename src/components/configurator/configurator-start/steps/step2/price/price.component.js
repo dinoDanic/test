@@ -17,10 +17,10 @@ import {
   CouponFail1,
 } from "./price.styles";
 
-import { coupons } from "../../../../../mock/coupons";
+import { coupons } from "../../../../../../mock/coupons";
 
-import Input from "../../../../../theme/ui-components/input/input.component";
-import Button from "../../../../../theme/ui-components/button/button.component";
+import Input from "../../../../../../theme/ui-components/input/input.component";
+import Button from "../../../../../../theme/ui-components/button/button.component";
 
 const Price = ({ price }) => {
   const [isCoupon, setIsCoupon] = useState(false);
@@ -43,22 +43,21 @@ const Price = ({ price }) => {
   const handleCoupon = () => {
     const findCoupon = coupons.filter((coupon) => coupon.name === couponInput);
     const theCoupon = findCoupon[0];
-    console.log("HANDLE COUPON");
+
     if (theCoupon !== undefined) {
-      console.log("setting coupon to true");
       setCouponValue(theCoupon.value);
       setCouponSuccess(true);
       setIsCoupon(false);
       setCouponFail(false);
       return;
-    }
-    if (theCoupon === undefined) {
+    } else {
       setCouponFail(true);
       setCouponSuccess(false);
       setIsCoupon(false);
       setCouponValue(null);
     }
   };
+
   return (
     <Container>
       <HoldInfo>

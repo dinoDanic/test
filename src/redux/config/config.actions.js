@@ -14,3 +14,8 @@ export const removeService = (name) => ({
   type: ConfigActionType.REMOVE_SERVICE,
   payload: name,
 });
+
+export const setDiscount = (value) => ({
+  type: ConfigActionType.SET_DISCOUNT,
+  payload: value,
+});

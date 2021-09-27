@@ -5,6 +5,6 @@ export const coupons = [
   },
   {
     name: "123",
-    value: 30,
+    value: 20,
   },
 ];

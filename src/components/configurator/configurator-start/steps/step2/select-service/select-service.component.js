@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import {
   addService,
   removeService,
-} from "../../../../../redux/config/config.actions";
+} from "../../../../../../redux/config/config.actions";
 
-import CheckBox from "../../../../../theme/ui-components/check-box/check-box.component";
+import CheckBox from "../../../../../../theme/ui-components/check-box/check-box.component";
 
 const SelectService = ({ service }) => {
   const { name, price } = service;
