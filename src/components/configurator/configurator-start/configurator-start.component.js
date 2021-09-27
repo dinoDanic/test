@@ -3,8 +3,8 @@ import Box from "../../../theme/ui-components/box/box.component";
 
 import { ConfigContainer, Title } from "./configurator-start.styles";
 
-import Step1 from "../steps/step1/step1.component";
-import Step2 from "../steps/step2/step2.component";
+import Step1 from "./steps/step1/step1.component";
+import Step2 from "./steps/step2/step2.component";
 
 const ConfiguratorStart = () => {
   const [steps, setSteps] = useState({
