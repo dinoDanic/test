@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Container, CarHolder, CarItem, Buttons } from "./step1.styles";
 
-import { setSteps } from "../../../../../redux/config/config.actions";
+import {
+  setErrorMessage,
+  setSteps,
+} from "../../../../../redux/config/config.actions";
 
 import SelectCar from "./select-car/select-car.component";
 import Button from "../../../../../theme/ui-components/button/button.component";
@@ -15,15 +18,16 @@ const Step1 = ({ setError }) => {
 
   const handleButton = () => {
     if (!buttonValid) {
-      setError("Odabir je obavezan");
+      dispatch(setErrorMessage("Odabir je obavezan"));
     } else {
-      setError("");
+      dispatch(setErrorMessage(null));
       dispatch(setSteps(2));
     }
   };
 
   useEffect(() => {
     if (buttonValid) {
+      dispatch(setErrorMessage(null));
       setError("");
     }
   }, [buttonValid, setError]);

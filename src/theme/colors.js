@@ -4,6 +4,7 @@ export const colors = {
     gray: "#f9f9f9",
     darkGray: "#eee",
     danger: "#a01120",
+    dangerLight: "#d2727c",
     success: "#33A744",
   },
 };

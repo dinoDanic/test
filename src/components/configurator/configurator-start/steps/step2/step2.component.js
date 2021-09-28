@@ -2,7 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { serviceData } from "../../../../../mock/service.data";
 
-import { setSteps } from "../../../../../redux/config/config.actions";
+import {
+  setErrorMessage,
+  setSteps,
+} from "../../../../../redux/config/config.actions";
 
 import { Container, ServiceItem, Services, Buttons } from "./step2.styles";
 
@@ -10,7 +13,7 @@ import SelectService from "./select-service/select-service.component";
 import Price from "./price/price.component";
 import Button from "../../../../../theme/ui-components/button/button.component";
 
-const Step2 = ({ setError }) => {
+const Step2 = () => {
   const dispatch = useDispatch();
   const [price, setPrice] = useState(null);
   const [buttonValidation, setButtonValidation] = useState(false);
@@ -26,17 +29,17 @@ const Step2 = ({ setError }) => {
     setPrice(sum);
     if (selectedServices.length > 0) {
       setButtonValidation(true);
-      setError("");
+      dispatch(setErrorMessage(null));
     } else {
       setButtonValidation(false);
     }
-  }, [selectedServices, setError]);
+  }, [selectedServices]);
 
   const handleNext = () => {
     if (!buttonValidation) {
-      setError("Odaberite jednu ili više");
+      dispatch(setErrorMessage("Odaberite jednu ili više opcija"));
     } else {
-      setError("");
+      dispatch(setErrorMessage(null));
       dispatch(setSteps(3));
     }
   };

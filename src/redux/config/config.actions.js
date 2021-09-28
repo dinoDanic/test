@@ -24,3 +24,8 @@ export const setSteps = (step) => ({
   type: ConfigActionType.SET_STEP,
   payload: step,
 });
+
+export const setErrorMessage = (errorMessage) => ({
+  type: ConfigActionType.SET_ERROR,
+  payload: errorMessage,
+});

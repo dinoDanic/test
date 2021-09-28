@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import {
   Container,
@@ -10,15 +10,15 @@ import {
 
 import carImage from "../../img/car.svg";
 import buildingImage from "../../img/building.svg";
+import ErrorMessage from "./error-message/error-message.component";
 
 const AnimationScene = () => {
-  const [size, setSize] = useState(0);
-  const selectedCar = useSelector((state) => state.config.selectedCar);
   const activeStep = useSelector((state) => state.config.activeStep);
   const [oneStep, setOneStep] = useState(null);
   const [containerWidth, setContainerWidth] = useState(null);
   const containerRef = useRef();
   const [carX, setCarX] = useState(null);
+
   const carAnimation = {
     initial: {},
     animate: { x: carX },
@@ -66,6 +66,7 @@ const AnimationScene = () => {
         animate="animate"
         transition="transition"
       >
+        <ErrorMessage />
         <Car src={carImage} />
       </CarHolder>
       <BuildingHolder>

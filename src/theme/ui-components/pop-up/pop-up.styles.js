@@ -9,7 +9,7 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 300px;
+  align-items: center;
 `;
 
 export const Layer = styled.div`

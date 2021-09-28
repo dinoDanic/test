@@ -16,6 +16,8 @@ export const CarHolder = styled(motion.div)`
   height: 25px;
   bottom: 0;
   left: 20px;
+  display: flex;
+  justify-content: center;
   /* background-color: red; */
 `;
 export const Car = styled.img``;

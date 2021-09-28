@@ -15,9 +15,12 @@ import {
 } from "./step3.styles";
 
 import { setUser } from "../../../../../redux/user/user.actions";
-import { setSteps } from "../../../../../redux/config/config.actions";
+import {
+  setErrorMessage,
+  setSteps,
+} from "../../../../../redux/config/config.actions";
 
-const Step3 = ({ setError }) => {
+const Step3 = () => {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const [buttonValidation, setButtonValidation] = useState(false);
@@ -48,9 +51,9 @@ const Step3 = ({ setError }) => {
   const handleNext = (e) => {
     e.preventDefault();
     if (!buttonValidation) {
-      setError("fields * are required");
+      dispatch(setErrorMessage("Polja pod * su obavezna"));
     } else {
-      setError("");
+      dispatch(setErrorMessage(null));
       dispatch(setUser(userData));
       dispatch(setSteps(4));
     }

@@ -6,6 +6,7 @@ const INITIAL_STATE = {
   price: 0,
   discount: null,
   activeStep: 1,
+  errorMessage: null,
 };
 
 const configReducer = (state = INITIAL_STATE, action) => {
@@ -37,6 +38,11 @@ const configReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         activeStep: action.payload,
+      };
+    case ConfigActionType.SET_ERROR:
+      return {
+        ...state,
+        errorMessage: action.payload,
       };
     default:
       return state;
