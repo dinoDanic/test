@@ -37,12 +37,12 @@ const Step2 = ({ setError }) => {
       setError("Odaberite jednu ili više");
     } else {
       setError("");
-      dispatch(setSteps("step3"));
+      dispatch(setSteps(3));
     }
   };
 
   const handleBack = () => {
-    dispatch(setSteps("step1"));
+    dispatch(setSteps(1));
   };
 
   return (

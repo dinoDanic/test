@@ -18,7 +18,7 @@ const Step1 = ({ setError }) => {
       setError("Odabir je obavezan");
     } else {
       setError("");
-      dispatch(setSteps("step2"));
+      dispatch(setSteps(2));
     }
   };
 

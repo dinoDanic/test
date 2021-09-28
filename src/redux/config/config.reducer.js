@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   selectedServices: [],
   price: 0,
   discount: null,
-  activeStep: "step1",
+  activeStep: 1,
 };
 
 const configReducer = (state = INITIAL_STATE, action) => {

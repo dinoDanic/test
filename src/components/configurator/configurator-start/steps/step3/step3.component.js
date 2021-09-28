@@ -52,12 +52,11 @@ const Step3 = ({ setError }) => {
     } else {
       setError("");
       dispatch(setUser(userData));
-      dispatch(setSteps("step4"));
+      dispatch(setSteps(4));
     }
   };
   const handleBack = () => {
-    console.log("dispatching?");
-    dispatch(setSteps("step2"));
+    dispatch(setSteps(2));
   };
 
   return (
