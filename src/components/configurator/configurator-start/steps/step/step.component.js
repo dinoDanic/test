@@ -8,7 +8,7 @@ const Step = ({ children, title, message, error }) => {
         <Title>{title}</Title>
         <Message>{message}</Message>
       </Head>
-      <Error>{error}</Error>
+      {error && <Error>{error}</Error>}
       {children}
     </Container>
   );

@@ -48,7 +48,7 @@ const Step3 = ({ setError }) => {
   const handleNext = (e) => {
     e.preventDefault();
     if (!buttonValidation) {
-      setError("field are required");
+      setError("fields * are required");
     } else {
       setError("");
       dispatch(setUser(userData));
