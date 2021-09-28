@@ -4,7 +4,8 @@ const defaultStyle = (theme) => `
     background: white;
     border-radius: ${theme.spacing.border.md};
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    padding: ${theme.spacing.padding.md}
+    padding: ${theme.spacing.padding.md};
+    position: relative;
 `;
 
 const lg = (theme) => `

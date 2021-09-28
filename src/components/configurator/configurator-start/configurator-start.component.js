@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 import { ConfigContainer, Title } from "./configurator-start.styles";
 
+import AnimationScene from "../../animation-scene/animation-scene.component";
 import Box from "../../../theme/ui-components/box/box.component";
 import Step from "./steps/step/step.component";
 import Step1 from "./steps/step1/step1.component";
@@ -17,8 +18,8 @@ const ConfiguratorStart = () => {
   return (
     <ConfigContainer>
       <Box size="lg">
+        <AnimationScene />
         <Title>Konfigurator servisa</Title>
-
         {activeStep === 1 && (
           <Step
             title="Korak 1. Odaberite proizvođača vašeg vozila"
