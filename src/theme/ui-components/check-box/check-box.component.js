@@ -13,7 +13,7 @@ const CheckBox = ({ checked, value, price, ...otherProps }) => {
       />
       <Label htmlFor={value}>
         {value}
-        {price && `(${price} kn)`}
+        {price && ` (${price} kn)`}
       </Label>
     </>
   );
