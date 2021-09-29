@@ -33,7 +33,7 @@ const Step2 = () => {
     } else {
       setButtonValidation(false);
     }
-  }, [selectedServices]);
+  }, [selectedServices, dispatch]);
 
   const handleNext = () => {
     if (!buttonValidation) {

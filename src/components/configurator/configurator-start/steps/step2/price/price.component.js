@@ -23,6 +23,7 @@ import { coupons } from "../../../../../../mock/coupons";
 import Input from "../../../../../../theme/ui-components/input/input.component";
 import Button from "../../../../../../theme/ui-components/button/button.component";
 import { setDiscount } from "../../../../../../redux/config/config.actions";
+import { decNumber } from "../../../../../../utils";
 
 const Price = ({ price }) => {
   const discount = useSelector((state) => state.config.discount);
@@ -93,20 +94,20 @@ const Price = ({ price }) => {
             )}
             <FullPriceHold>
               <Text>OSNOVICA :</Text>
-              <FullPrice>{price} kn</FullPrice>
+              <FullPrice> {decNumber(price)} kn</FullPrice>
             </FullPriceHold>
             <Discount>
               <Text>Popust {couponValue}% :</Text>
-              <DiscountValue>- {discountValue} kn</DiscountValue>
+              <DiscountValue>- {decNumber(discountValue)} kn</DiscountValue>
             </Discount>
           </>
         )}
         <TotalPrice>
           <Sum>Ukupno:</Sum>
           {couponValue ? (
-            <PriceValue>{priceWithDiscount} kn</PriceValue>
+            <PriceValue>{decNumber(priceWithDiscount)} kn</PriceValue>
           ) : (
-            <PriceValue>{price} kn</PriceValue>
+            <PriceValue>{decNumber(price)} kn</PriceValue>
           )}
         </TotalPrice>
       </HoldInfo>

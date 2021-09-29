@@ -12,7 +12,7 @@ import Button from "../../../../../theme/ui-components/button/button.component";
 
 import { carsData } from "../../../../../mock/cars.data";
 
-const Step1 = ({ setError }) => {
+const Step1 = () => {
   const dispatch = useDispatch();
   const [buttonValid, setButtonValid] = useState(false);
 
@@ -28,9 +28,8 @@ const Step1 = ({ setError }) => {
   useEffect(() => {
     if (buttonValid) {
       dispatch(setErrorMessage(null));
-      setError("");
     }
-  }, [buttonValid, setError]);
+  }, [buttonValid, dispatch]);
 
   return (
     <Container>

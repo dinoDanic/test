@@ -3,7 +3,6 @@ import ConfigActionType from "./config.actionType";
 const INITIAL_STATE = {
   selectedCar: null,
   selectedServices: [],
-  price: 0,
   discount: null,
   activeStep: 1,
   errorMessage: null,

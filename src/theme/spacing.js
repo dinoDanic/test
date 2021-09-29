@@ -9,4 +9,7 @@ export const spacing = {
     lg: "16px",
     xl: "32px",
   },
+  mobile: {
+    sm: "max-width: 700px",
+  },
 };

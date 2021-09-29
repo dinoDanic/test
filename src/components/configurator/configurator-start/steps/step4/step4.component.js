@@ -40,7 +40,11 @@ const Step4 = () => {
   };
 
   const handleBack = () => {
-    dispatch(setSteps(4));
+    dispatch(setSteps(3));
+  };
+
+  const handleSubmit = () => {
+    dispatch(setSteps(5));
   };
 
   return (
@@ -93,7 +97,7 @@ const Step4 = () => {
       </UserHold>
       <Buttons>
         <Button onClick={handleBack}>Nazad</Button>
-        <Button>Pošalji</Button>
+        <Button onClick={handleSubmit}>Pošalji</Button>
       </Buttons>
     </Container>
   );

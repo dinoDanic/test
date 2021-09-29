@@ -4,15 +4,17 @@ export const Container = styled.div``;
 export const ServicesHold = styled.div`
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 `;
 export const Section = styled.div`
-  flex: 0.5;
+  flex: 1;
   border: 1px solid ${(props) => props.theme.colors.ui.darkGray};
   padding: ${(props) => props.theme.spacing.padding.ml};
   border-radius: ${(props) => props.theme.spacing.border.md};
+  min-width: 200px;
 `;
 export const Services = styled.div`
-  flex: 0.5;
+  flex: 1;
 `;
 export const Head = styled.div`
   display: flex;
@@ -35,11 +37,16 @@ export const UserInfoHold = styled.div`
   display: flex;
   gap: 20px;
   margin-top: 20px;
+  flex-wrap: wrap;
 `;
 export const Col = styled.div`
-  flex: 0.5;
+  flex: 1;
+  min-width: 200px;
   &:last-child {
     padding-left: 20px;
+    @media (${(props) => props.theme.spacing.mobile.sm}) {
+      padding-left: 0;
+    }
   }
 `;
 export const UserInfo = styled.div``;

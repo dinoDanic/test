@@ -19,7 +19,7 @@ const SelectCar = ({ car, setButtonValid }) => {
     } else {
       setChecked(false);
     }
-  }, [config, carName]);
+  }, [config, carName, setButtonValid]);
 
   const handleSelect = (e) => {
     const value = e.target.value;
