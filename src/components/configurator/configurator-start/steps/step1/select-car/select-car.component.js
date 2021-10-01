@@ -39,15 +39,6 @@ const SelectCar = ({ car, setButtonValid }) => {
         value={carName}
         onChange={(e) => handleSelect(e)}
       />
-      {/* <input
-        type="radio"
-        id={carName}
-        value={carName}
-        name="car"
-        ref={radioRef}
-        onChange={(e) => handleSelect(e)}
-      />
-      <label htmlFor={carName}>{carName}</label> */}
     </Container>
   );
 };
