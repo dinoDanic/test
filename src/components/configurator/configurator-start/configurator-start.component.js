@@ -21,7 +21,7 @@ const ConfiguratorStart = () => {
       <Box size="lg">
         <AnimationScene />
         <StepCount />
-        <Title>Konfigurator servisa</Title>
+        <Title>Konfigurator servisa </Title>
         {activeStep === 1 && (
           <Step title="Korak 1. Odaberite proizvođača vašeg vozila">
             <Step1 />

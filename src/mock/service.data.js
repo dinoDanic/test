@@ -6,7 +6,3 @@ export const serviceData = [
   { name: "Balansiranje guma", price: 50 },
   { name: "Zamjena ulja u kočnicama", price: 229 },
 ];
-
-export const coupon = {
-  name: "Tokić123",
-};
